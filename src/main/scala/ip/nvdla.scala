@@ -16,6 +16,11 @@ class nvdla(blackboxName: String, hasSecondAXI: Boolean, dataWidthAXI: Int) exte
     val rstn = Bool(INPUT)
     val csb_rstn = Bool(INPUT)
 
+    val jtag_TCK = Clock(INPUT)
+    val jtag_TMS = Bool(INPUT)
+    val jtag_TDI = Bool(INPUT)
+    val jtag_TDO = Bool(OUTPUT)
+
     val dla_intr = Bool(OUTPUT)
     // dbb AXI
     val nvdla_core2dbb_aw_awvalid = Bool(OUTPUT)
