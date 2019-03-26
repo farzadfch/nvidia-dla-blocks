@@ -83,12 +83,12 @@ class NVDLA(params: NVDLAParams, val crossing: ClockCrossingType = AsynchronousC
 
 
   lazy val module = new LazyModuleImp(this) {
-    val io = new Bundle  {
+    val io = IO(new Bundle  {
       val jtag_TCK = Clock(INPUT)
       val jtag_TMS = Bool(INPUT)
       val jtag_TDI = Bool(INPUT)
       val jtag_TDO = Bool(OUTPUT)
-    }
+    })
 
     val u_nvdla = Module(new nvdla(blackboxName, hasSecondAXI, dataWidthAXI))
 
